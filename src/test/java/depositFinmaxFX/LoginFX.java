@@ -12,6 +12,7 @@ public class LoginFX {
     private WebDriver driver;
     private WebDriverWait wait;
 
+
     public LoginFX(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver,10);
