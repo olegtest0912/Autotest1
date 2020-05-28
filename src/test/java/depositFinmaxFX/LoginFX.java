@@ -18,6 +18,7 @@ public class LoginFX {
         wait = new WebDriverWait(driver,10);
 
     }
+
     @FindBy (name = "email")
     private WebElement email;
 
