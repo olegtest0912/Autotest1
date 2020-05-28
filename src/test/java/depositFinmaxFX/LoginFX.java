@@ -30,6 +30,7 @@ public class LoginFX {
 
     public void loginToFX(String emailtext,String passwordtext){
         driver.get("https://finmaxfx.com/ru/login");
+        
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
         email.sendKeys(emailtext);
         password.sendKeys(passwordtext);
