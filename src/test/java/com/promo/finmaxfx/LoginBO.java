@@ -47,7 +47,8 @@ public class LoginBO extends WebElementSettingsFX {
         //driver.findElement(By.cssSelector("#amount")).clear();
         driver.findElement(By.cssSelector("#amount")).sendKeys(Keys.CONTROL,"a");
         driver.findElement(By.cssSelector("#amount")).sendKeys("150");
-       // driver.findElement(button_deposit).click();
+        driver.findElement(button_deposit).click();
+
 
     }
 }

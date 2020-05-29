@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class ParamDepoFX extends WebElementSettingsFX {
+public class ParamDepoFX extends SettingsFX {
     @Parameterized.Parameters(name = "{0}"+" "+"{2}"+" "+"{3}")
     public static Collection<Object[]> data() {
 
