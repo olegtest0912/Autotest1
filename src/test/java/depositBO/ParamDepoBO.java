@@ -24,59 +24,55 @@ public class ParamDepoBO extends SettingsBO {
         String xpate = "https://m.xpate.com/p/";
 
         // User data by Countries
-        String[] sng = {"Selenium4482@autotest.com","123456BB"};
+        String[] sng = {"nexoji2816@etoymail.com","123456BB"};
         String[] russia = {"mitaxej795@gilfun.com","123456BB"};
-        String[] other = {"Selenium8404@autotest.com","123456Aa"};
-        String[] germany = {"Selenium1987@autotest.com","123456Aa"};
-        String[] europe = {"ihedun44@gmail.com","123456Aa"};
-        String[] baltic = {"Selenium1232@autotest.com","123456Aa"};
-        String[] Austria_Swz = {"acceptaient@bronhit.info","123456Aa"};
+        String[] other = {"selenium1235744@qafinmax.com","123456Aa"};
+        String[] UK = {"selenium1239195@qafinmax.com","123456Aa"};
+        String[] europe = {"dmitriy.qc3@gmail.com","123456"};
+        String[] baltic = {"sadod29964@provlst.com","123456BB"};
+        String[] Australia = {"Selertdy545678i@autotest.com","123456Aa"};
 
         return Arrays.asList(new Object[][] {
 
-                        /*{"Sng",sng,"visa",250,paymentCenter},
-                        {"Sng",sng,"visa",1000,payboutique},
-                        {"Sng",sng,"visa",2000,payboutique},
-                        {"Sng",sng,"master",250,accentpay},
-                        {"Sng",sng,"master",1000,payboutique},*/
+                {"Russia",russia,"visa","250",payboutique},
+                {"Russia",russia,"visa","1000",paymentCenter},
+                {"Russia",russia,"visa","2000",accentpay},
+                {"Russia",russia,"master","250",paymentCenter},
+                {"Russia",russia,"master","1000",accentpay},
+                {"Russia",russia,"mir","50",accentpay},
+                {"Russia",russia,"mir","1000",payboutique},
+                {"Russia",russia,"mir","2000",payboutique},
 
-                        {"Russia",russia,"visa","250",payboutique},
-                       /* {"Russia",russia,"visa",1000,accentpay},
-                        {"Russia",russia,"visa",2000,payboutique},
-                        {"Russia",russia,"master",250,accentpay},
-                        {"Russia",russia,"master",1000,paymentCenter},
-                        {"Russia",russia,"mir",50,accentpay},
-                        {"Russia",russia,"mir",1000,payboutique},
-                        {"Russia",russia,"mir",2000,payboutique},
+                {"Sng",sng,"visa","99",accentpay},
+                {"Sng",sng,"visa","2000",payboutique},
+                {"Sng",sng,"visa","3100",payboutique},
+                {"Sng",sng,"master","99",accentpay},
+                {"Sng",sng,"master","500",accentpay},
 
-                        {"Baltic",baltic,"visa",250,certus},
-                        {"Baltic",baltic,"visa",1000,payboutique},
-                        {"Baltic",baltic,"visa",5000,payboutique},
-                        {"Baltic",baltic,"master",250,accentpay},
-                        {"Baltic",baltic,"master",1000,payboutique},
-                        {"Baltic",baltic,"master",2000,payboutique},
+                {"Baltic",baltic,"visa","200",payboutique},
+                {"Baltic",baltic,"visa","1000",accentpay},
+                {"Baltic",baltic,"master","250",payboutique},
+                {"Baltic",baltic,"master","1000",payboutique},
+                {"Baltic",baltic,"master","2000",accentpay},
 
+                {"Europe",europe,"visa","200", accentpay},
+                {"Europe",europe,"visa","1000",certus},
+                {"Europe",europe,"master","200",certus},
+                {"Europe",europe,"master","1000",certus},
 
-                        {"Austia",Austria_Swz,"visa",250,certus},
-                        {"Austia",Austria_Swz,"visa",1000,certus},
-                        {"Austia",Austria_Swz,"master",250,certus},
-                        {"Austia",Austria_Swz,"master",1000,certus},
+                {"Australia",Australia,"visa","200",certus},
+                {"Australia",Australia,"visa","1000",accentpay},
+                {"Australia",Australia,"master","200",accentpay},
+                {"Australia",Australia,"master","1000",certus},
 
-                        {"Germany",germany,"visa",250,certus},
-                        {"Germany",germany,"visa",1000,certus},
-                        {"Germany",germany,"master",250,certus},
-                        {"Germany",germany,"master",1000,certus},
+                {"Other",other,"visa","200",certus},
+                {"Other",other,"visa","1000",accentpay},
+                {"Other",other,"master","200",certus},
+                {"Other",other,"master","1000",certus},
 
-                        {"Europe",europe,"visa",250,certus},
-                        {"Europe",europe,"visa",1000,certus},
-                        {"Europe",europe,"master",250,certus},
-                        {"Europe",europe,"master",1000,certus},
+                {"uk",UK,"credit_accentpay","200",certus},
+                {"uk",UK,"credit_accentpay","1600",certus},
 
-                        {"Other",other,"visa","250",certus},
-                        {"Other",other,"visa",1000,payboutique},
-                        {"Other",other,"master",250,payboutique},
-                        {"Other",other,"master",1000,certus},
-*/
                 }
         );
     }
