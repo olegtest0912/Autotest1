@@ -2,6 +2,7 @@ package depositFinmaxFX;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,42 +24,22 @@ public class ClickPayment {
         wait = new WebDriverWait(driver,15);
     }
 
-    @FindBy (id = "my-account")
-    private WebElement accountButton;
-
-    @FindBy (name = "depositamount")
-    private WebElement depositamount;
-
-
-
-    private By depositButton = By.cssSelector("[class=\"fa fa-credit-card\"]");
     private By button_deposit = By.cssSelector("button[class=\"btn w-100 custom-btn btn-success\"]");
 
-    public void clicktoDeposit()  {
-        accountButton.click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(depositButton));
-        driver.findElement(depositButton).click();
-    }
-    public void checkDeposit(String paySystem, int amountValue)  {
+    public void checkDeposit(String paySystem, String amountValue)  {
+        driver.get("https://finmaxfx.com/ru/deposit");
+        //wait
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value=\""+paySystem+"\"]")));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(button_deposit));
-
+        // select buttton
         WebElement button = driver.findElement(By.cssSelector("input[value=\""+paySystem+"\"]"));
         WebElement buttonParent = button.findElement(By.xpath("../.."));
         buttonParent.findElement(By.cssSelector("label[role=\"button\"]")).click();
-        if((amountValue==50)){
-            depositamount.clear();
-        }else if((amountValue==5000)){
-            depositamount.clear();
-            depositamount.sendKeys("00");
-        }else{
-            WebElement buttonAmount = driver.findElement(By.cssSelector("input[value=\""+amountValue+"\"]"));
-            WebElement buttonAmountParent = buttonAmount.findElement(By.xpath("../.."));
-            buttonAmountParent.findElement(By.cssSelector("label[role=\"button\"]")).click();
-        }
+        //amount
+        driver.findElement(By.name("depositamount")).sendKeys(Keys.CONTROL,"a");
+        driver.findElement(By.name("depositamount")).sendKeys(amountValue);
+        //button click
         driver.findElement(button_deposit).click();
     }
-
     public void checkPaysystem(String payLink)  {
       wait.until(ExpectedConditions.urlContains(payLink));
       System.out.println("actual link: " + driver.getCurrentUrl());

@@ -70,10 +70,10 @@ public class ParamDepoFX extends SettingsFX {
                         {"Europe",europe,"master",250,certus},
                         {"Europe",europe,"master",1000,certus},*/
 
-                        {"Other",other,"visa",250,certus},
-                        {"Other",other,"visa",1000,payboutique},
-                        {"Other",other,"master",250,payboutique},
-                        {"Other",other,"master",1000,certus},
+                        {"Other",other,"visa","250",certus},
+                        {"Other",other,"visa","1000",payboutique},
+                        {"Other",other,"master","250",payboutique},
+                        {"Other",other,"master","1000",certus},
 
                 }
         );
@@ -81,10 +81,10 @@ public class ParamDepoFX extends SettingsFX {
     private String description;
     private String[] country;
     private String button;
-    private Integer value;
+    private String value;
     private String paySystem;
 
-    public ParamDepoFX(String description, String[] country, String button,Integer value,String paySystem) {
+    public ParamDepoFX(String description, String[] country, String button,String value,String paySystem) {
         this.description = description;
         this.country = country;
         this.button = button;
@@ -97,7 +97,6 @@ public class ParamDepoFX extends SettingsFX {
         LoginFX loginFX = PageFactory.initElements(driver,LoginFX.class);
         loginFX.loginToFX(country[0],country[1]);
         ClickPayment clickPayment = PageFactory.initElements(driver,ClickPayment.class);
-        clickPayment.clicktoDeposit();
         clickPayment.checkDeposit(button,value);
         clickPayment.checkPaysystem(paySystem);
     }
