@@ -13,7 +13,7 @@ public class RegisterNS extends SetingsNS {
 
     @Test
     public void registerNS(){
-    driver.get(mainlink+"en");
+    driver.get(primaryURL);
 
         wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOfElementLocated(regButton));
@@ -42,7 +42,7 @@ public class RegisterNS extends SetingsNS {
 
 
         //Personal account page
-        wait.until(ExpectedConditions.urlToBe(mainlink + "en/personal-details"));
+        wait.until(ExpectedConditions.urlToBe(primaryURL + "personal-details"));
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#personal_details")));
         driver.findElementByName("firstname").sendKeys("TestSelenium");
         driver.findElementByName("lastname").sendKeys("TestSurname");
@@ -62,5 +62,6 @@ public class RegisterNS extends SetingsNS {
         WebElement submit = driver.findElement(By.cssSelector("[class=\"form-group form-group-btn\"]"));
         submit.findElement(By.cssSelector("[type=\"submit\"]")).click();
 
+        wait.until(ExpectedConditions.urlToBe(primaryURL +"account"));
     }
 }
