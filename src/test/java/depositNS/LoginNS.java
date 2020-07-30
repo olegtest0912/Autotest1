@@ -10,11 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Random;
+;
 
 public class LoginNS extends SetingsNS {
 
     private By btngrp = By.cssSelector(".btn-group");
+    private By login_element = By.cssSelector("[name=\"login\"]");
+    private By pass_element = By.cssSelector("[name=\"password\"]");
+
+
 
     @Test
     public void loginNs() throws IOException {
@@ -23,8 +27,8 @@ public class LoginNS extends SetingsNS {
         wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOfElementLocated(btngrp));
         //find elements
-        driver.findElement(By.cssSelector("[name=\"login\"]")).sendKeys("banaser5@comlive.ga");
-        driver.findElement(By.cssSelector("[name=\"password\"]")).sendKeys("Hollow321");
+        driver.findElement(By.cssSelector("[name=\"login\"]")).sendKeys("olegtest0912@gmail.com");
+        driver.findElement(By.cssSelector("[name=\"password\"]")).sendKeys("123456Aa");
         WebElement area1 = driver.findElement(btngrp);
         area1.findElement(By.cssSelector("[type=\"submit\"]")).click();
         // check response code
@@ -37,34 +41,22 @@ public class LoginNS extends SetingsNS {
         wait.until(ExpectedConditions.urlToBe(primaryURL + "dashboard"));
     }
 
-    public void emptylog(String urllang,String log,String pass){
-        driver.get(primaryURL + urllang);
-        wait = new WebDriverWait(driver,50);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(btngrp));
-
-        WebElement area1 = driver.findElement((btngrp));
-        area1.findElement(By.cssSelector("[type=\"submit\"]")).click();
-        String logvalid = driver.findElement(By.cssSelector("#userSigninLogin-error")).getText();
-        String pasvalid = driver.findElement(By.cssSelector("#userSigninPassword-error")).getText();
-        System.out.println(urllang + "\n" + logvalid + "\n" + pasvalid);
-        Assert.assertTrue(logvalid.equals(log));
-        Assert.assertTrue(pasvalid.equals(pass));
-        Assert.assertTrue(driver.getCurrentUrl().contains("login"));
-
-    }
 
     public void validation(String email,String password,String urllang,String explog,String exppass){
         driver.get(primaryURL + urllang);
         wait = new WebDriverWait(driver,50);
         wait.until(ExpectedConditions.visibilityOfElementLocated(btngrp));
-        driver.findElement(By.cssSelector("[name=\"login\"]")).sendKeys(email);
-        driver.findElement(By.cssSelector("[name=\"password\"]")).sendKeys(password);
-
+        driver.findElement(login_element).sendKeys(email);
+        driver.findElement(pass_element).sendKeys(password);
+        //find submit
         WebElement area1 = driver.findElement((btngrp));
         area1.findElement(By.cssSelector("[type=\"submit\"]")).click();
+        //find and get text in validation fields
         String logvalid = driver.findElement(By.cssSelector("#userSigninLogin-error")).getText();
         String pasvalid = driver.findElement(By.cssSelector("#userSigninPassword-error")).getText();
+
         System.out.println(urllang + "\n" + logvalid + "\n" + pasvalid);
+        //using equals,because other conditions not working
         Assert.assertTrue(logvalid.equals(explog));
         Assert.assertTrue(pasvalid.equals(exppass));
         Assert.assertTrue(driver.getCurrentUrl().contains("login"));
@@ -75,22 +67,21 @@ public class LoginNS extends SetingsNS {
         driver.get(primaryURL + urllang);
         wait = new WebDriverWait(driver, 50);
         wait.until(ExpectedConditions.visibilityOfElementLocated(btngrp));
-        driver.findElement(By.cssSelector("[name=\"login\"]")).sendKeys("test872y8172@tes.com");
-        driver.findElement(By.cssSelector("[name=\"password\"]")).sendKeys("123456Aa");
+        driver.findElement(login_element).sendKeys("test872y8172@tes.com");
+        driver.findElement(pass_element).sendKeys("123456Aa");
 
         WebElement area1 = driver.findElement((btngrp));
-
-
         area1.findElement(By.cssSelector("[type=\"submit\"]")).click();
+        //waiting alert
         wait.until(ExpectedConditions.alertIsPresent());
         Alert alert = driver.switchTo().alert();
         String warning = alert.getText();
-        System.out.println(warning);
+        //require!! alert need ti accept before Assert procedure
         alert.accept();
+        System.out.println(urllang + "\n" + warning);
         Assert.assertTrue(warning.contains(expmessage));
 
     }
-
 
     @Test
     public void пустые_поля ()throws IOException{
@@ -124,7 +115,6 @@ public class LoginNS extends SetingsNS {
                 {email,pass,"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit comporter au moins 8 caractères"},
                 {email,pass,"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere almeno 8 caratteri"},
                 {email,pass,"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi mieć co najmniej 8 znaków"}
-
         };
         for (String[] s : array) {
             validation(s[0],s[1],s[2],s[3],s[4]);
@@ -157,13 +147,13 @@ public class LoginNS extends SetingsNS {
         String email= "11111111";
 
         String[][] array = {
-                {email,pass,"login","Please enter a valid email address","Invalid password"},
-                {email,pass,"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Ungültiges Passwort"},
-                {email,pass,"es/login","Por favor, introduce una dirección de correo electrónico válida","Contraseña invalida"},
-                {email,pass,"pt/login","Por favor, insira um e-mail válido","Senha inválida"},
-                {email,pass,"fr/login","S'il vous plaît, mettez une adresse email valide","Mot de passe incorrect"},
-                {email,pass,"it/login","Si prega di inserire un indirizzo email valido","Password non valida"},
-                {email,pass,"pl/login","Proszę wpisać aktualny adres e-mail","Nieprawidłowe hasło"}
+                {email,pass,"login","Please enter a valid email address","Password must contain 1 number and capital letter"},
+                {email,pass,"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Das Passwort muss 1 Nummer und Großbuchstaben enthalten"},
+                {email,pass,"es/login","Por favor, introduce una dirección de correo electrónico válida","La contraseña debe contener 1 número y mayúscula"},
+                {email,pass,"pt/login","Por favor, insira um e-mail válido","A senha deve conter 1 número e letra maiúscula"},
+                {email,pass,"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit contenir 1 chiffre et une majuscule"},
+                {email,pass,"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere 1 numero e lettera maiuscola"},
+                {email,pass,"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi zawierać 1 cyfrę i dużą literę"}
 
         };
         for (String[] s : array) {
@@ -175,9 +165,9 @@ public class LoginNS extends SetingsNS {
     public void невалидные_данные_юзера ()throws IOException{
 
         String[][] array = {
-                {"login","The details you entered did not match our records. Please double-check and try again."},
-                {"de/login","The details you entered did not match our records. Please double-check and try again."},
-                {"es/login","The details you entered did not match our records. Please double-check and try again."},
+                {"login","A user was not found with the given credentials."},
+                {"de/login","A user was not found with the given credentials."},
+                {"es/login","A user was not found with the given credentials."},
                 {"pt/login","The details you entered did not match our records. Please double-check and try again."},
                 {"fr/login","L'utilisateur saisie ne correspond à aucun utilisateur enregistré. Merci de vérifier votre saisie et de réessayer."},
                 {"it/login","The details you entered did not match our records. Please double-check and try again."},

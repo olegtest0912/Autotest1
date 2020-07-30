@@ -46,13 +46,14 @@ public class LoginToBO {
         }
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"btn btn-primary\"]")));
         driver.findElement(By.cssSelector("[class=\"btn btn-primary\"]")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"container\"]")));
-        String lonk = driver.getCurrentUrl();
+        wait.until(ExpectedConditions.urlContains("trades"));
+        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"container\"]")));
+       // String lonk = driver.getCurrentUrl();
         //  System.out.println(lonk);
-        Assert.assertEquals(lonk, "https://finmaxbo.com/ru/trades");
-        WebDriver asas = driver.switchTo().frame(driver.findElement(By.cssSelector("[title=\"options_fe_1\"]")));
+        //Assert.assertEquals(lonk, "https://finmaxbo.com/ru/trades");
+       /* WebDriver asas = driver.switchTo().frame(driver.findElement(By.cssSelector("[title=\"options_fe_1\"]")));
         Thread.sleep(3000);
         asas.findElement(By.cssSelector("[class=\"col-sm-12\"]"));
-        System.out.println(asas);
+        System.out.println(asas);*/
     }
 }

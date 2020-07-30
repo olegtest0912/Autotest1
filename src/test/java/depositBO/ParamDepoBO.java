@@ -24,11 +24,11 @@ public class ParamDepoBO extends SettingsBO {
         String xpate = "https://m.xpate.com/p/";
 
         // User data by Countries
-        String[] sng = {"nexoji2816@etoymail.com","123456BB"};
+        String[] sng = {"rohef41395@fazmail.net","123456BB"};
         String[] russia = {"mitaxej795@gilfun.com","123456BB"};
         String[] other = {"selenium1235744@qafinmax.com","123456Aa"};
         String[] UK = {"selenium1239195@qafinmax.com","123456Aa"};
-        String[] europe = {"dmitriy.qc3@gmail.com","123456"};
+        String[] europe = {"dmitriy.qc3@bk.ru","123456"};
         String[] baltic = {"sadod29964@provlst.com","123456BB"};
         String[] Australia = {"Selertdy545678i@autotest.com","123456Aa"};
 
@@ -38,22 +38,22 @@ public class ParamDepoBO extends SettingsBO {
                 {"Russia",russia,"visa","1000",paymentCenter},
                 {"Russia",russia,"visa","2000",accentpay},
                 {"Russia",russia,"master","250",paymentCenter},
-                {"Russia",russia,"master","1000",accentpay},
+                {"Russia",russia,"master","1000",payboutique},
                 {"Russia",russia,"mir","50",accentpay},
                 {"Russia",russia,"mir","1000",payboutique},
-                {"Russia",russia,"mir","2000",payboutique},
+                {"Russia",russia,"mir","2000",accentpay},
 
-                {"Sng",sng,"visa","99",accentpay},
-                {"Sng",sng,"visa","2000",payboutique},
-                {"Sng",sng,"visa","3100",payboutique},
+                {"Sng",sng,"visa","99",payboutique},
+                {"Sng",sng,"visa","2000",accentpay},
+                {"Sng",sng,"visa","3100",accentpay},
                 {"Sng",sng,"master","99",accentpay},
-                {"Sng",sng,"master","500",accentpay},
+                {"Sng",sng,"master","500",payboutique},
 
                 {"Baltic",baltic,"visa","200",payboutique},
                 {"Baltic",baltic,"visa","1000",accentpay},
                 {"Baltic",baltic,"master","250",payboutique},
-                {"Baltic",baltic,"master","1000",payboutique},
-                {"Baltic",baltic,"master","2000",accentpay},
+                {"Baltic",baltic,"master","1000",accentpay},
+                {"Baltic",baltic,"master","2000",payboutique},
 
                 {"Europe",europe,"visa","200", accentpay},
                 {"Europe",europe,"visa","1000",certus},
@@ -67,12 +67,11 @@ public class ParamDepoBO extends SettingsBO {
 
                 {"Other",other,"visa","200",certus},
                 {"Other",other,"visa","1000",accentpay},
-                {"Other",other,"master","200",certus},
+                {"Other",other,"master","200",accentpay},
                 {"Other",other,"master","1000",certus},
 
                 {"uk",UK,"credit_accentpay","200",certus},
-                {"uk",UK,"credit_accentpay","1600",certus},
-
+                {"uk",UK,"credit_accentpay","1600",certus}
                 }
         );
     }

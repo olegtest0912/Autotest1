@@ -43,5 +43,7 @@ public class ClickPayment {
     public void checkPaysystem(String payLink)  {
       wait.until(ExpectedConditions.urlContains(payLink));
       System.out.println("actual link: " + driver.getCurrentUrl());
+
+
     }
 }
