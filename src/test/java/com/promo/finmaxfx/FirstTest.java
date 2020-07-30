@@ -3,6 +3,7 @@ package com.promo.finmaxfx;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -84,6 +85,57 @@ public void run ()throws IOException{
             System.out.println(s + "  WRONG STATUS");
         }
     }
+
+    @Test
+    public void forlanding() throws IOException, InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String[] array = {
+                "https://zyskztradingu.space/handel/index-pl.php",
+                "https://stock-index.space/advisorwealth-ppc/",
+                "https://stock-index.space/advisorwealth/",
+                "https://trader-test.space/quiz4trade/index-en.php",
+                "http://top-investion.space/delo/",
+                "https://zyskztradingu.space/profit-trading/index-pl.php",
+                "https://zyskztradingu.space/time-bonus/index-pl.php",
+                "https://trade-signals.space/",
+                "https://max-point.space/robot/index-pl.php",
+                "https://aif-ru.site/bulltrade/",
+                "https://world-assets.space/",
+                "https://trade-signals.space/",
+                "https://max-point.space/robot/index-pl.php",
+                "https://aif-ru.site/bulltrade/",
+                "http://cryptosystembtc.com/en",
+                "https://gente-rica.space/capital/index-en.php",
+                "http://invest-in-stock.site/grow-capital/index-en.php",
+                "https://zyskztradingu.space/riskfree/index-pl.php",
+                "https://polskihandel.space/",
+                "https://popular-assets.space/profit-trading/index-ru.php",
+                "https://digital-trading.space/bitcoin/",
+                "https://aif-ru.site/bulltrade/",
+                "https://digital-trading.space/crypto-calculator/",
+                "https://digital-trading.space/cryptoboom/"};
+
+        for (String i : array) {
+        driver.get(i);
+            URL url = new URL(i);
+            HttpURLConnection http = (HttpURLConnection) url.openConnection();
+            int response = http.getResponseCode();
+            System.out.println(response);
+           Thread.sleep(10000);
+            js.executeScript("window.scrollBy(0,500)");
+            Thread.sleep(10000);
+            js.executeScript("window.scrollBy(0,1000)");
+            Thread.sleep(10000);
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+            Thread.sleep(10000);
+
+
+        }
+
+    }
+
+
+
     }
     /*@Test
     public void delingTest(){
