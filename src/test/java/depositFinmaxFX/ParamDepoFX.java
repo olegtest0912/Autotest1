@@ -20,6 +20,7 @@ public class ParamDepoFX extends SettingsFX {
         String paymentCenter = "https://paygatedirect.com/v2/webpay?token";
         String payboutique = "https://pay.qiwi.com/?token";
         String xpate = "https://m.xpate.com/p/";
+        String payretail = "https://api.gateway.payretailers.com/v2/public/paywalls/landing";
 
         // User data by Countries
         String[] sng = {"Selenium4482@autotest.com","123456Aa"};
@@ -32,8 +33,6 @@ public class ParamDepoFX extends SettingsFX {
         String[] UK = {"tafijeg913@openavz.com","123456Fx"};
 
         return Arrays.asList(new Object[][] {
-
-
 
                 {"Sng",sng,"visa","250",paymentCenter},
                 {"Sng",sng,"visa","1000",payboutique},
@@ -83,6 +82,7 @@ public class ParamDepoFX extends SettingsFX {
                 {"uk",UK,"master","200",certus},
                 {"uk",UK,"master","1600",certus},
 
+                {"Payretail",other,"payretailers","1000",payretail},
                 }
         );
     }

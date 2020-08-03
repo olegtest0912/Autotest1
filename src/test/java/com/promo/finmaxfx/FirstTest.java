@@ -7,9 +7,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 
 public class FirstTest  extends WebElementSettingsFX {
@@ -37,10 +40,10 @@ public class FirstTest  extends WebElementSettingsFX {
    @Test
 public void run ()throws IOException{
 
-    String[] array = {"https://promo.finmaxfx.com/robot/index-en.php",
+    String[] array = {
+            "https://promo.finmaxfx.com/robot/index-en.php",
             "https://promo.finmaxfx.com/robot/index-ru.php",
             "https://promo.finmaxfx.com/robot/index-de.php"
-
     };
     for (String s : array) {
         englinkTest(s);
@@ -89,49 +92,49 @@ public void run ()throws IOException{
     @Test
     public void forlanding() throws IOException, InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        String[] array = {
+        BufferedReader reader = new BufferedReader(new FileReader("d:\\test.txt"));
+        String str;
+
+        ArrayList<String> list = new ArrayList<String>();
+        while((str = reader.readLine()) != null ){
+            if(!str.isEmpty()){
+                list.add(str);
+                //System.out.println(str);
+            }}
+        String[] stringArr = list.toArray(new String[0]);
+      /*  String[] array = {
                 "https://zyskztradingu.space/handel/index-pl.php",
                 "https://stock-index.space/advisorwealth-ppc/",
                 "https://stock-index.space/advisorwealth/",
-                "https://trader-test.space/quiz4trade/index-en.php",
-                "http://top-investion.space/delo/",
-                "https://zyskztradingu.space/profit-trading/index-pl.php",
-                "https://zyskztradingu.space/time-bonus/index-pl.php",
-                "https://trade-signals.space/",
-                "https://max-point.space/robot/index-pl.php",
-                "https://aif-ru.site/bulltrade/",
-                "https://world-assets.space/",
-                "https://trade-signals.space/",
-                "https://max-point.space/robot/index-pl.php",
-                "https://aif-ru.site/bulltrade/",
-                "http://cryptosystembtc.com/en",
-                "https://gente-rica.space/capital/index-en.php",
-                "http://invest-in-stock.site/grow-capital/index-en.php",
-                "https://zyskztradingu.space/riskfree/index-pl.php",
-                "https://polskihandel.space/",
-                "https://popular-assets.space/profit-trading/index-ru.php",
-                "https://digital-trading.space/bitcoin/",
-                "https://aif-ru.site/bulltrade/",
-                "https://digital-trading.space/crypto-calculator/",
-                "https://digital-trading.space/cryptoboom/"};
+             };*/
 
-        for (String i : array) {
-        driver.get(i);
+        for (String i : stringArr) {
+           // System.out.println(i);
+            driver.get(i);
+            System.out.println(i);
             URL url = new URL(i);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             int response = http.getResponseCode();
             System.out.println(response);
-           Thread.sleep(10000);
-            js.executeScript("window.scrollBy(0,500)");
-            Thread.sleep(10000);
-            js.executeScript("window.scrollBy(0,1000)");
-            Thread.sleep(10000);
-            js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-            Thread.sleep(10000);
 
+            Thread.sleep(2000);
+            js.executeScript("window.scrollTo({" +
+                    "    top: ((document.body.scrollHeight)/2)," +
+                    "    behavior: \"smooth\"" +
+                    "});");
+            Thread.sleep(2000);
+            js.executeScript("window.scrollTo({" +
+                    "    top: document.body.scrollHeight," +
+                    "    behavior: \"smooth\"" +
+                    "});");
+            Thread.sleep(2000);
+            js.executeScript("window.scrollTo({" +
+                    "    top: 0," +
+                    "    behavior: \"smooth\"" +
+                    "});");
+            Thread.sleep(2000);
 
         }
-
     }
 
 

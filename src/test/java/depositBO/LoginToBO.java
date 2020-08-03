@@ -34,19 +34,21 @@ public class LoginToBO {
 
 
         driver.get("https://finmaxbo.com/ru");
-        wait = new WebDriverWait(driver, 50);
+        wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"medals\"]")));
         WebElement ll = driver.findElement(By.cssSelector("[class=\"active\"]"));
         ll.findElement(By.cssSelector("[class=\"btn-enter\"]")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("login_name")));
+
         email.sendKeys(emailtext);
-        boolean ss = email.isDisplayed();
-        if (ss){
-            password.sendKeys(passwordtext);
-        }
+         wait.until(ExpectedConditions.attributeToBe(email,"value",emailtext));
+        password.sendKeys(passwordtext);
+        wait.until(ExpectedConditions.attributeToBe(password,"value",passwordtext));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"btn btn-primary\"]")));
         driver.findElement(By.cssSelector("[class=\"btn btn-primary\"]")).click();
+
         wait.until(ExpectedConditions.urlContains("trades"));
+
         //wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"container\"]")));
        // String lonk = driver.getCurrentUrl();
         //  System.out.println(lonk);

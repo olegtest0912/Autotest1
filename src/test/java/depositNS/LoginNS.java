@@ -89,16 +89,16 @@ public class LoginNS extends SetingsNS {
         String email= "";
 
         String[][] array = {
-                {email,pass,"login","Please enter a valid email address","Please provide a password"},
-                {email,pass,"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Geben Sie ein Passwort ein"},
-                {email,pass,"es/login","Por favor, introduce una dirección de correo electrónico válida","Por favor ingrese una contraseña"},
-                {email,pass,"pt/login","Por favor, insira um e-mail válido","Por favor, insira uma password"},
-                {email,pass,"fr/login","S'il vous plaît, mettez une adresse email valide","S'il vous plaît fournir un mot de passe"},
-                {email,pass,"it/login","Si prega di inserire un indirizzo email valido","Si prega di fornire una password"},
-                {email,pass,"pl/login","Proszę wpisać aktualny adres e-mail","Podaj hasło"}
+                {"login","Please enter a valid email address","Please provide a password"},
+                {"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Geben Sie ein Passwort ein"},
+                {"es/login","Por favor, introduce una dirección de correo electrónico válida","Por favor ingrese una contraseña"},
+                {"pt/login","Por favor, insira um e-mail válido","Por favor, insira uma password"},
+                {"fr/login","S'il vous plaît, mettez une adresse email valide","S'il vous plaît fournir un mot de passe"},
+                {"it/login","Si prega di inserire un indirizzo email valido","Si prega di fornire una password"},
+                {"pl/login","Proszę wpisać aktualny adres e-mail","Podaj hasło"}
         };
         for (String[] s : array) {
-            validation(s[0],s[1],s[2],s[3],s[4]);
+            validation(email,pass,s[0],s[1],s[2]);
         }
     }
     @Test
@@ -108,16 +108,16 @@ public class LoginNS extends SetingsNS {
         String email= "111111";
 
         String[][] array = {
-                {email,pass,"login","Please enter a valid email address","The password must be at least 8 characters"},
-                {email,pass,"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Das Passwort muss mindestens 8 Zeichen lang sein"},
-                {email,pass,"es/login","Por favor, introduce una dirección de correo electrónico válida","La contraseña debe tener al menos 8 caracteres"},
-                {email,pass,"pt/login","Por favor, insira um e-mail válido","A senha deve ter pelo menos 8 caracteres"},
-                {email,pass,"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit comporter au moins 8 caractères"},
-                {email,pass,"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere almeno 8 caratteri"},
-                {email,pass,"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi mieć co najmniej 8 znaków"}
+                {"login","Please enter a valid email address","The password must be at least 8 characters"},
+                {"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Das Passwort muss mindestens 8 Zeichen lang sein"},
+                {"es/login","Por favor, introduce una dirección de correo electrónico válida","La contraseña debe tener al menos 8 caracteres"},
+                {"pt/login","Por favor, insira um e-mail válido","A senha deve ter pelo menos 8 caracteres"},
+                {"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit comporter au moins 8 caractères"},
+                {"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere almeno 8 caratteri"},
+                {"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi mieć co najmniej 8 znaków"}
         };
         for (String[] s : array) {
-            validation(s[0],s[1],s[2],s[3],s[4]);
+            validation(email,pass,s[0],s[1],s[2]);
         }
     }
     @Test
@@ -127,17 +127,17 @@ public class LoginNS extends SetingsNS {
         String email= "11111111";
 
         String[][] array = {
-                {email,pass,"login","Please enter a valid email address","Password must contain 1 number and capital letter"},
-                {email,pass,"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Das Passwort muss 1 Nummer und Großbuchstaben enthalten"},
-                {email,pass,"es/login","Por favor, introduce una dirección de correo electrónico válida","La contraseña debe contener 1 número y mayúscula"},
-                {email,pass,"pt/login","Por favor, insira um e-mail válido","A senha deve conter 1 número e letra maiúscula"},
-                {email,pass,"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit contenir 1 chiffre et une majuscule"},
-                {email,pass,"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere 1 numero e lettera maiuscola"},
-                {email,pass,"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi zawierać 1 cyfrę i dużą literę"}
+                {"login","Please enter a valid email address","Password must contain 1 number and capital letter"},
+                {"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Das Passwort muss 1 Nummer und Großbuchstaben enthalten"},
+                {"es/login","Por favor, introduce una dirección de correo electrónico válida","La contraseña debe contener 1 número y mayúscula"},
+                {"pt/login","Por favor, insira um e-mail válido","A senha deve conter 1 número e letra maiúscula"},
+                {"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit contenir 1 chiffre et une majuscule"},
+                {"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere 1 numero e lettera maiuscola"},
+                {"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi zawierać 1 cyfrę i dużą literę"}
 
         };
         for (String[] s : array) {
-            validation(s[0],s[1],s[2],s[3],s[4]);
+            validation(email,pass,s[0],s[1],s[2]);
         }
     }
     @Test
@@ -147,17 +147,17 @@ public class LoginNS extends SetingsNS {
         String email= "11111111";
 
         String[][] array = {
-                {email,pass,"login","Please enter a valid email address","Password must contain 1 number and capital letter"},
-                {email,pass,"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Das Passwort muss 1 Nummer und Großbuchstaben enthalten"},
-                {email,pass,"es/login","Por favor, introduce una dirección de correo electrónico válida","La contraseña debe contener 1 número y mayúscula"},
-                {email,pass,"pt/login","Por favor, insira um e-mail válido","A senha deve conter 1 número e letra maiúscula"},
-                {email,pass,"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit contenir 1 chiffre et une majuscule"},
-                {email,pass,"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere 1 numero e lettera maiuscola"},
-                {email,pass,"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi zawierać 1 cyfrę i dużą literę"}
+                {"login","Please enter a valid email address","Password must contain 1 number and capital letter"},
+                {"de/login","Bitte geben Sie eine gültige E-Mail-Adresse ein","Das Passwort muss 1 Nummer und Großbuchstaben enthalten"},
+                {"es/login","Por favor, introduce una dirección de correo electrónico válida","La contraseña debe contener 1 número y mayúscula"},
+                {"pt/login","Por favor, insira um e-mail válido","A senha deve conter 1 número e letra maiúscula"},
+                {"fr/login","S'il vous plaît, mettez une adresse email valide","Le mot de passe doit contenir 1 chiffre et une majuscule"},
+                {"it/login","Si prega di inserire un indirizzo email valido","La password deve contenere 1 numero e lettera maiuscola"},
+                {"pl/login","Proszę wpisać aktualny adres e-mail","Hasło musi zawierać 1 cyfrę i dużą literę"}
 
         };
         for (String[] s : array) {
-            validation(s[0],s[1],s[2],s[3],s[4]);
+            validation(pass,email,s[0],s[1],s[2]);
         }
     }
 
@@ -172,7 +172,6 @@ public class LoginNS extends SetingsNS {
                 {"fr/login","L'utilisateur saisie ne correspond à aucun utilisateur enregistré. Merci de vérifier votre saisie et de réessayer."},
                 {"it/login","The details you entered did not match our records. Please double-check and try again."},
                 {"pl/login","The details you entered did not match our records. Please double-check and try again."}
-
         };
         for (String[] s : array) {
             невалидные_данные_юзера(s[0],s[1]);
