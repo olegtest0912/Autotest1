@@ -1,0 +1,4 @@
+[0727/141120.369:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
+[0727/141120.372:ERROR:exception_snapshot_win.cc(98)] thread ID 12152 not found in process
+[0727/172318.078:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
+[0727/172318.096:ERROR:exception_snapshot_win.cc(98)] thread ID 6996 not found in process

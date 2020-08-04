@@ -1,6 +1,7 @@
 package autoRegLand;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,7 @@ public class BoRegisterLang {
 
         Random random = new Random();
         String number = "545455" + (random.nextInt(999) + 100 );
-        String rand_email = "Selenium" + (random.nextInt(9999) + 1000) + "@autotestbo.com";
+        String rand_email = "Selenium" + (random.nextInt(99999) + 1000) + "@autotestbo.com";
         forms.get(0).findElement(By.cssSelector("input[name=\"email\"]")).sendKeys(rand_email);
 
         forms.get(0).findElement(By.cssSelector("input[name=\"phone\"]")).sendKeys(number);
@@ -50,7 +51,11 @@ public class BoRegisterLang {
            forms.get(0).findElement(By.cssSelector("[value=\"usd\"]")).click();
             wait.until(ExpectedConditions.attributeToBe(By.cssSelector("[name=\"currency\"]"),"value","usd"));
         }
-             forms.get(0).findElement(By.cssSelector("[type=\"submit\"]"));
+        try{
+            driver.findElements(By.cssSelector("form")).get(0).findElement(By.cssSelector("[type=\"submit\"]"));
+        } catch (NoSuchElementException e){
+            driver.findElements(By.cssSelector("form")).get(0).findElement(By.cssSelector("button"));
+        }
         return rand_email;
     }
 

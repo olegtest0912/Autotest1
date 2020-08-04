@@ -1,16 +1,16 @@
 package depositBO;
 
-import com.google.gson.Gson;
+
 import com.google.gson.reflect.TypeToken;
-import depositBO.data.ParamDepoData;
+import data.IParamsProvider;
+import data.JsonParamsProvider;
+import data.model.BoLandingData;
+import data.model.ParamDepoData;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.support.PageFactory;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,7 +20,9 @@ import java.util.List;
 public class ParamDepoBO extends SettingsBO {
     @Parameterized.Parameters(name = "{0}" + " " + "{2}" + " " + "{3}")
     public static Collection<Object[]> data() {
-        List<ParamDepoData> savedData = loadData();
+        IParamsProvider<List<ParamDepoData>> paramsProvider = new JsonParamsProvider<>("param_depo_data.json",  new TypeToken<List<ParamDepoData>>() {
+        }.getType());
+        List<ParamDepoData> savedData = paramsProvider.loadData();
         if (savedData == null || savedData.isEmpty()) {
             System.out.println("No param depo data in json. Make default and save");
             List<Object[]> defaultData = makeDefaultData();
@@ -118,36 +120,9 @@ public class ParamDepoBO extends SettingsBO {
                     (String) item[4]
             ));
         }
-        String json = new Gson().toJson(depoData);
-        try {
-            FileWriter fileWriter = new FileWriter("param_depo_data.json");
-            fileWriter.write(json);
-            fileWriter.close();
-            System.out.println("Param depo data saved in json");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static List<ParamDepoData> loadData() {
-        List<ParamDepoData> depoData = new ArrayList<>();
-
-        try {
-            FileReader fileReader = new FileReader("param_depo_data.json");
-            ArrayList<ParamDepoData> savedData = new Gson().fromJson(fileReader, new TypeToken<ArrayList<ParamDepoData>>() {
-            }.getType());
-            depoData.addAll(savedData);
-            System.out.println("Load param depo data from json");
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-        for (ParamDepoData data : depoData) {
-            System.out.println(data.getCountry() + "   " + data.getCredencials().getEmail() + "   " + data.getCredencials().getPassword() + "   " + data.getPaymentSystem() + "   " + data.getAmount() + "   " + data.getUrl());
-        }
-
-        return depoData;
+        IParamsProvider<List<ParamDepoData>> paramsProvider = new JsonParamsProvider<>("param_depo_data.json",  new TypeToken<List<ParamDepoData>>() {
+        }.getType());
+        paramsProvider.saveData(depoData);
     }
 
     private String description;
