@@ -67,8 +67,8 @@ public class FXLandings extends SettingsLand {
         String aid = "?a_aid=957";
         System.out.println("\nURL:\n" + url + aid);
 
-        RegisterLang RegisterLang = PageFactory.initElements(driver, RegisterLang.class);
-        String email = RegisterLang.register(url + aid);
+        RegisterLang registerLang = PageFactory.initElements(driver, RegisterLang.class);
+        String email = registerLang.register(url + aid);
         System.out.println("\nGenerated email:\n" + email + "\n");
 
         CheckLeadFX checkLeadFX = PageFactory.initElements(driver, CheckLeadFX.class);
