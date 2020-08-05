@@ -1,5 +1,7 @@
 package autoRegLand;
 
+import autoRegLand.BO.CheckLeadBO;
+import autoRegLand.SettingsLand;
 import com.google.gson.reflect.TypeToken;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import data.IParamsProvider;
@@ -19,10 +21,10 @@ import java.util.List;
 @RunWith(Parameterized.class)
 public class BoLandings extends SettingsLand {
 
-    @Parameterized.Parameters(name = "{0}")
+    @Parameterized.Parameters()
     public static Collection<Object[]> data() {
 
-        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("landing_bo.json", new TypeToken<List<BoLandingData>>() {
+        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("src/test/java/autoRegLand/Lists/landing_bo.json", new TypeToken<List<BoLandingData>>() {
         }.getType());
         List<BoLandingData> savedData = paramsProvider.loadData();
         // check if saved data
@@ -283,8 +285,8 @@ public class BoLandings extends SettingsLand {
         String aid = "?a_aid=957";
         System.out.println("\nURL:\n" + url + aid);
 
-        BoRegisterLang boRegisterLang = PageFactory.initElements(driver, BoRegisterLang.class);
-        String email = boRegisterLang.register(url + aid);
+        RegisterLang RegisterLang = PageFactory.initElements(driver, RegisterLang.class);
+        String email = RegisterLang.register(url + aid);
         System.out.println("\nGenerated email:\n" + email + "\n");
 
         CheckLeadBO checkLeadBO = PageFactory.initElements(driver, CheckLeadBO.class);

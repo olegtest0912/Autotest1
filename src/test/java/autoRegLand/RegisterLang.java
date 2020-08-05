@@ -2,13 +2,14 @@ package autoRegLand;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Random;
 
-public class FXRegisterLang {
+public class RegisterLang {
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -21,15 +22,13 @@ public class FXRegisterLang {
 
 
 
-    public FXRegisterLang(WebDriver driver){
+    public RegisterLang(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver,5);
+        wait = new WebDriverWait(driver,4);
     }
     public String register(String url) throws InterruptedException {
 
         driver.get(url);
-
-
         int formnubmer = 0;
         try
         {
@@ -48,8 +47,8 @@ public class FXRegisterLang {
 
         Random random = new Random();
         String number = "545455" + (random.nextInt(999) + 100 );
-        String rand_email = "Selenium" + (random.nextInt(99999) + 1000) + "@autotestfx.com";
-        System.out.println(formnubmer);
+        String rand_email = "Selenium" + (random.nextInt(999999) + 1000) + "@autotestselenium.com";
+        //System.out.println(formnubmer);
 
         try
         {
@@ -72,7 +71,7 @@ public class FXRegisterLang {
         }
 
         if (currency.equals("")){
-           Thread.sleep(2000);
+           Thread.sleep(1500);
             wait.until(ExpectedConditions.elementToBeClickable(currency_element));
             forms.findElement(currency_element).click();
             forms.findElement(By.cssSelector("[value=\"usd\"]")).click();
@@ -84,6 +83,9 @@ public class FXRegisterLang {
         } catch (NoSuchElementException e){
             forms.findElement(By.cssSelector("button"));
         }
+/*
+        ExpectedCondition e = (ExpectedCondition<Boolean>) d -> (!d.getCurrentUrl().equals(url));
+        wait.until(e);*/
 
         return rand_email;
     }

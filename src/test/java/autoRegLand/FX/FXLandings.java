@@ -1,6 +1,8 @@
-package autoRegLand;
+package autoRegLand.FX;
 
 
+import autoRegLand.RegisterLang;
+import autoRegLand.SettingsLand;
 import com.google.gson.reflect.TypeToken;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import data.IParamsProvider;
@@ -23,7 +25,7 @@ public class FXLandings extends SettingsLand {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
 
-        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("landing_fx.json", new TypeToken<List<BoLandingData>>() {
+        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("src/test/java/autoRegLand/Lists/landing_fx.json", new TypeToken<List<BoLandingData>>() {
         }.getType());
         List<BoLandingData> savedData = paramsProvider.loadData();
         // check if saved data
@@ -61,12 +63,12 @@ public class FXLandings extends SettingsLand {
     }
 
     @Test
-    public void runBO() throws InterruptedException, UnirestException {
+    public void runFX() throws InterruptedException, UnirestException {
         String aid = "?a_aid=957";
         System.out.println("\nURL:\n" + url + aid);
 
-        FXRegisterLang  fxRegisterLang = PageFactory.initElements(driver, FXRegisterLang.class);
-        String email = fxRegisterLang.register(url + aid);
+        RegisterLang RegisterLang = PageFactory.initElements(driver, RegisterLang.class);
+        String email = RegisterLang.register(url + aid);
         System.out.println("\nGenerated email:\n" + email + "\n");
 
         CheckLeadFX checkLeadFX = PageFactory.initElements(driver, CheckLeadFX.class);

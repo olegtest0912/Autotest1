@@ -1,4 +1,4 @@
-package autoRegLand;
+package autoRegLand.BO;
 
 import com.google.gson.JsonArray;
 import com.mashape.unirest.http.JsonNode;
