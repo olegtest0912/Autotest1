@@ -33,12 +33,15 @@ public class RegisterLang {
         try
         {
             System.out.println("form - " + formnubmer);
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("form"))).get(formnubmer);
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("form")));
+            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",driver.findElements(By.cssSelector("form")).get(formnubmer));
+
         }
         catch (TimeoutException e) {
             formnubmer ++ ;
             System.out.println("form - " + formnubmer);
             ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();",driver.findElements(By.cssSelector("form")).get(formnubmer));
+
         }
 
         WebElement forms = driver.findElements(By.cssSelector("form")).get(formnubmer);
@@ -61,31 +64,45 @@ public class RegisterLang {
         }
 
         String currency;
-
         try {
+            forms.findElement(By.xpath("//*[contains(@name,'currency') and contains(@type,'hidden')]"));
+        }catch (NoSuchElementException e){
+            Thread.sleep(100);
+          wait.until(ExpectedConditions.elementToBeClickable(currency_element));
+            try {
+                forms.findElement(currency_element).click();
+                forms.findElement(By.xpath("//*[@value=\"usd\" or @value=\"USD\"]")).click();
+            } catch (ElementClickInterceptedException d){
+              //  forms.findElement(By.xpath("//*[@id=\"app\"]/aside/form/div[5]/label[1]/i")).click();
+                forms.findElement(By.xpath("//label[1]/i")).click();
+            }
+           // wait.until(ExpectedConditions.attributeToBe(currency_element,"value","usd"));
+        }
+
+        /*try {
              currency = forms.findElement(currency_element).getAttribute("value");
+            System.out.println(currency);
 
         }catch (NoSuchElementException e){
 
             currency = forms.findElement(By.xpath("//*[contains(@name,'currency') and contains(@type,'hidden')]")).getAttribute("value");
         }
-
         if (currency.equals("")){
-           Thread.sleep(1500);
+           Thread.sleep(2000);
             wait.until(ExpectedConditions.elementToBeClickable(currency_element));
             forms.findElement(currency_element).click();
             forms.findElement(By.cssSelector("[value=\"usd\"]")).click();
             wait.until(ExpectedConditions.attributeToBe(currency_element,"value","usd"));
         }
-
+*/
         try{
-            forms.findElement(By.cssSelector("[type=\"submit\"]"));
+            forms.findElement(By.cssSelector("[type=\"submit\"]")).click();
         } catch (NoSuchElementException e){
-            forms.findElement(By.cssSelector("button"));
+            forms.findElement(By.cssSelector("button")).click();
         }
-/*
+
         ExpectedCondition e = (ExpectedCondition<Boolean>) d -> (!d.getCurrentUrl().equals(url));
-        wait.until(e);*/
+        wait.until(e);
 
         return rand_email;
     }
