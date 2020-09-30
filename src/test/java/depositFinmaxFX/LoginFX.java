@@ -30,7 +30,7 @@ public class LoginFX {
     private  By submitButton = By.cssSelector("[class=\"btn custom-btn btn-success pull-right\"]");
 
     public void loginToFX(String emailtext,String passwordtext){
-        driver.get("https://finmaxfx.com/ru/login");
+        driver.get("https://finmax-fx.com/ru/login");
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
         email.sendKeys(emailtext);

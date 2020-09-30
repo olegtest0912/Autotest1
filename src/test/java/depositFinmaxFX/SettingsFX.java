@@ -12,7 +12,7 @@ public class SettingsFX {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","src/main/resources/drivers/chromedriver83.exe");
+        System.setProperty("webdriver.chrome.driver","src/main/resources/drivers/chromedriver84.exe");
         driver = new ChromeDriver();
  //       driver.manage().window().setSize(new Dimension(1920,1080));
         driver.manage().window().maximize();
