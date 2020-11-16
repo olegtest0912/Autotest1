@@ -24,7 +24,7 @@ public class RegisterLang {
 
     public RegisterLang(WebDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver,4);
+        wait = new WebDriverWait(driver,20);
     }
     public String register(String url) throws InterruptedException {
 
@@ -95,11 +95,11 @@ public class RegisterLang {
             wait.until(ExpectedConditions.attributeToBe(currency_element,"value","usd"));
         }
 */
-        try{
+        /*try{
             forms.findElement(By.cssSelector("[type=\"submit\"]")).click();
         } catch (NoSuchElementException e){
             forms.findElement(By.cssSelector("button")).click();
-        }
+        }*/
 
         ExpectedCondition e = (ExpectedCondition<Boolean>) d -> (!d.getCurrentUrl().equals(url));
         wait.until(e);

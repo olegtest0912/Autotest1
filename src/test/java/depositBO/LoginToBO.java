@@ -1,9 +1,7 @@
 package depositBO;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,17 +31,38 @@ public class LoginToBO {
     public void loginToBo(String emailtext,String passwordtext) throws InterruptedException {
 
 
-        driver.get("https://finmaxbo.com/ru");
-        wait = new WebDriverWait(driver, 10);
+        driver.get("https://finmax-bo.com/ru");
+        wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"medals\"]")));
         WebElement ll = driver.findElement(By.cssSelector("[class=\"active\"]"));
         ll.findElement(By.cssSelector("[class=\"btn-enter\"]")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("login_name")));
 
-        email.sendKeys(emailtext);
-         wait.until(ExpectedConditions.attributeToBe(email,"value",emailtext));
-        password.sendKeys(passwordtext);
-        wait.until(ExpectedConditions.attributeToBe(password,"value",passwordtext));
+
+
+
+
+        try {
+            email.sendKeys(emailtext);
+            wait.until(ExpectedConditions.attributeToBe(email,"value",emailtext));
+        }catch (TimeoutException e){
+            System.out.println("catch email");
+            email.sendKeys(Keys.CONTROL,"a");
+            email.sendKeys(emailtext);
+        }
+
+
+
+        try {
+            password.sendKeys(passwordtext);
+            wait.until(ExpectedConditions.attributeToBe(password,"value",passwordtext));
+        }catch (TimeoutException e){
+            System.out.println("catch password");
+            password.sendKeys(Keys.CONTROL,"a");
+            password.sendKeys(passwordtext);
+        }
+
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[class=\"btn btn-primary\"]")));
         driver.findElement(By.cssSelector("[class=\"btn btn-primary\"]")).click();
 

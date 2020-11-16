@@ -12,30 +12,25 @@ public class LoginFX {
     private WebDriver driver;
     private WebDriverWait wait;
 
-
     public LoginFX(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(driver,10);
-
     }
 
     @FindBy (name = "email")
     private WebElement email;
-
     @FindBy (name = "password")
     private WebElement password;
-
 
     private By frameTitle = By.cssSelector("iframe[title=\"bpwidgets_3\"]");
     private  By submitButton = By.cssSelector("[class=\"btn custom-btn btn-success pull-right\"]");
 
     public void loginToFX(String emailtext,String passwordtext){
         driver.get("https://finmax-fx.com/ru/login");
-
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
         email.sendKeys(emailtext);
         password.sendKeys(passwordtext);
         driver.findElement(submitButton).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(((frameTitle))));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(frameTitle));
     }
 }

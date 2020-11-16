@@ -25,7 +25,7 @@ public class BoLandings extends SettingsLand {
     @Parameterized.Parameters()
     public static Collection<Object[]> data() {
 
-        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("src/test/java/autoRegLand/Lists/landing_fx1.json", new TypeToken<List<BoLandingData>>() {
+        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("src/test/java/autoRegLand/Lists/landing_bo.json", new TypeToken<List<BoLandingData>>() {
         }.getType());
         List<BoLandingData> savedData = paramsProvider.loadData();
         // check if saved data
@@ -289,9 +289,10 @@ public class BoLandings extends SettingsLand {
         RegisterLang registerLang = PageFactory.initElements(driver, RegisterLang.class);
         String email = registerLang.register(url + aid);
         System.out.println("\nGenerated email:\n" + email + "\n");
-
+        Thread.sleep(15000);
        // Thread.sleep();
         CheckLeadBO checkLeadBO = PageFactory.initElements(driver, CheckLeadBO.class);
+
         checkLeadBO.checkApi(email);
     }
 }

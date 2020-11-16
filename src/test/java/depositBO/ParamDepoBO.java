@@ -6,6 +6,7 @@ import data.IParamsProvider;
 import data.JsonParamsProvider;
 import data.model.BoLandingData;
 import data.model.ParamDepoData;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -138,7 +139,7 @@ public class ParamDepoBO extends SettingsBO {
         this.value = value;
         this.paySystem = paySystem;
     }
-
+    @Ignore
     @Test
     public void depositBO() throws InterruptedException {
         LoginToBO loginToBO = PageFactory.initElements(driver, LoginToBO.class);

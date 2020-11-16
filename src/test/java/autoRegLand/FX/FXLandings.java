@@ -25,7 +25,7 @@ public class FXLandings extends SettingsLand {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
 
-        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("src/test/java/autoRegLand/Lists/landing_fx1.json", new TypeToken<List<BoLandingData>>() {
+        IParamsProvider<List<BoLandingData>> paramsProvider = new JsonParamsProvider<>("src/test/java/autoRegLand/Lists/landing_fx.json", new TypeToken<List<BoLandingData>>() {
         }.getType());
         List<BoLandingData> savedData = paramsProvider.loadData();
         // check if saved data

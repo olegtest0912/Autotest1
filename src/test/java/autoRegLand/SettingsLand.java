@@ -11,7 +11,7 @@ public class SettingsLand {
 
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver","src/main/resources/drivers/chromedriver84.exe");
+        System.setProperty("webdriver.chrome.driver","src/main/resources/drivers/chromedriver85.exe");
         driver = new ChromeDriver();
         //       driver.manage().window().setSize(new Dimension(1920,1080));
         driver.manage().window().maximize();
@@ -22,6 +22,6 @@ public class SettingsLand {
     @After
     public void quit(){
         System.out.println("End test");
-        driver.quit();
+   driver.quit();
     }
 }

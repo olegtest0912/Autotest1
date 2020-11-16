@@ -41,20 +41,14 @@ public class ClickPayment {
         //button click
         driver.findElement(button_deposit).click();
     }
+
     public void checkPaysystem(String payLink) throws InterruptedException {
-        if(payLink.contains(payLink)){
-           // Thread.sleep(5000);
+        if(payLink.contains("paythrone")){
             try {
-                String oldTab = driver.getWindowHandle();
-                System.out.println("run if");
                 ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
-               // newTab.remove(oldTab);
-                System.out.println(newTab);
                 driver.switchTo().window(newTab.get(1));
             }catch (IndexOutOfBoundsException e){
-                System.out.println("catch");
-                Thread.sleep(5000);
-                String oldTab = driver.getWindowHandle();
+                Thread.sleep(8000);
                 ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
                 driver.switchTo().window(newTab.get(1));
             }
@@ -62,11 +56,12 @@ public class ClickPayment {
       wait.until(ExpectedConditions.urlContains(payLink));
       System.out.println("actual link: " + driver.getCurrentUrl());
     }
+
     public void checkStatus() throws IOException {
         URL url = new URL(driver.getCurrentUrl());
         HttpURLConnection http = (HttpURLConnection) url.openConnection();
         int response = http.getResponseCode();
         System.out.println("ResponseCode:" + response);
-        Assert.assertFalse((response == 400)||(response == 404)||(response == 403));
+        Assert.assertFalse((response == 400)||(response == 404)||(response == 403)||(response == 500));
     }
 }

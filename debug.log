@@ -32,3 +32,26 @@
 [0810/102345.738:ERROR:process_reader_win.cc(108)] process 152436 not found
 [0810/102345.757:ERROR:exception_snapshot_win.cc(98)] thread ID 120768 not found in process
 [0810/102345.758:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Попытка доступа к процессу, выполняющему процедуру завершения. (0xc000010a)
+[0824/104740.624:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
+[0824/104740.683:ERROR:exception_snapshot_win.cc(98)] thread ID 167216 not found in process
+[0824/105123.111:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
+[0824/105123.114:ERROR:exception_snapshot_win.cc(98)] thread ID 91912 not found in process
+[1019/100652.956:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/102847.866:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/104911.979:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/110524.103:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/112438.992:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/114207.344:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/120051.426:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/131325.146:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/135848.621:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1019/141632.917:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1022/110800.993:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1022/111409.240:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1022/113619.715:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[1022/121313.911:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1022/122633.003:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1022/124416.160:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1022/125507.882:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1111/152845.362:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1111/154528.580:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)

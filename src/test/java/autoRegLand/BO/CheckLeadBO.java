@@ -10,7 +10,7 @@ import org.junit.Assert;
 
 public class CheckLeadBO {
     public void checkApi(String email) throws UnirestException {
-        String searchQueryApi = "https://finmaxbo.com/api/checkEmail.php?email=" + email;
+        String searchQueryApi = "https://finmax-bo.com/api/checkEmail.php?email=" + email;
         System.out.println(searchQueryApi);
       //  int status = Unirest.get(searchQueryApi).asJson().getStatus();
         JsonNode body = Unirest.get(searchQueryApi)

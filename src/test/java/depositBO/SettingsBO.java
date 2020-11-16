@@ -16,7 +16,7 @@ public class SettingsBO {
         driver = new ChromeDriver();
  //       driver.manage().window().setSize(new Dimension(1920,1080));
         driver.manage().window().maximize();
-
+        String primary_url="https://finmaxbo.com";
         System.out.println("start test");
 
     }
